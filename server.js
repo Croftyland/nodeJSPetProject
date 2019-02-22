@@ -46,6 +46,13 @@ app.post('/artists', function (req, res) {
     res.send(artist);
 })
 
+app.put('/artists/:id', function (req, res) {
+    var artist = artists.find(function (artist) {
+        return artist.id === Number(req.params.id)
+    });
+    artist.name = req.body.name;
+    res.sendStatus(200);
+})
 
 app.listen(3012, function () {
     console.log('API app started');
