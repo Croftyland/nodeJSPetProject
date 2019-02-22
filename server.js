@@ -1,6 +1,10 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var artists = [
     {
@@ -32,6 +36,16 @@ app.get('/artists/:id', function (req, res) {
     });
     res.send(artist);
 })
+
+app.post('/artists', function (req, res) {
+    var artist = {
+        id: Date.now(),
+        name: req.body.name
+    };
+    artists.push(artist);
+    res.send(artist);
+})
+
 
 app.listen(3012, function () {
     console.log('API app started');
