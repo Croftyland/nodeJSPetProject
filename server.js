@@ -54,6 +54,13 @@ app.put('/artists/:id', function (req, res) {
     res.sendStatus(200);
 })
 
+app.delete('/artists/:id', function (req, res) {
+    artists = artists.filter(function (artist) {
+        return artist.id !== Number(req.params.id);
+    })
+    res.sendStatus(200);
+})
+
 app.listen(3012, function () {
     console.log('API app started');
 })
