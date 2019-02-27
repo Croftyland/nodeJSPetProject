@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID
 var db = require('./db');
-var artistsController = require('./controllers/artists');
+var artistsController = require('./controllers/artist');
 
 var app = express();
 
